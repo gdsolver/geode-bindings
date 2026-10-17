@@ -71,7 +71,7 @@ FMODAudioEngine::~FMODAudioEngine() {
 }
 
 FMODAudioEngine* FMODAudioEngine::sharedEngine() {
-    auto** instancePtr = reinterpret_cast<FMODAudioEngine**>(geode::base::get() + 0x6c2e88);
+    auto** instancePtr = reinterpret_cast<FMODAudioEngine**>(geode::base::get() + 0x906f60);
     if (!*instancePtr) {
         *instancePtr = new FMODAudioEngine();
         (*instancePtr)->init();
@@ -91,7 +91,7 @@ void FMODAudioEngine::activateQueuedMusic(int channel) {
 
 void FMODAudioEngine::channelLinkSound(int id, FMODSound* sound) {
     sound->m_playCount++;
-    sound->m_playIndex = (*reinterpret_cast<int*>(geode::base::get() + 0x6c2e74))++;
+    sound->m_playIndex = (*reinterpret_cast<int*>(geode::base::get() + 0x906f4c))++;
     m_channelIDToSoundPath[id] = sound->m_filePath;
 }
 

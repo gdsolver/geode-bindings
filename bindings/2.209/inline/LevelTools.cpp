@@ -78,7 +78,7 @@ bool LevelTools::getLastGameplayRotated() {
 }
 
 float LevelTools::getLastTimewarp() {
-    return *reinterpret_cast<float*>(geode::base::get() + 0x6ba198);
+    return *reinterpret_cast<float*>(geode::base::get() + 0x8f94a4);
 }
 
 cocos2d::CCPoint LevelTools::posForTime(float time, cocos2d::CCArray* objects, int speed, bool platformer, int& rotateChannel) {
