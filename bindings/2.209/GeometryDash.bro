@@ -10523,6 +10523,10 @@ class GJGameLevel : cocos2d::CCNode {
     TodoReturn recordCompletion();
     TodoReturn recordDeath(int, int, bool);
     TodoReturn rollSession(int, int);
+    // 2.209: closes the level's previous play session when the last play was longer ago than the gap (gap in seconds, now = time(nullptr)):
+    // moves the pending death data (k136, k142, ...) into the history string (k146), clears it and stamps the new session's start. Not a name
+    // from the game: read from the binary; its one caller is PlayLayer::resetLevel. Windows only, found by its address.
+    void rollOverDeathData209(int now, int gapSeconds) = win 0x263800;
     void saveNewScore(int value, int type, int ticks, int clicks, int coins, std::string inputs, bool save) = win 0x2624e0, imac 0x583700, m1 0x4d4d4c, ios 0xce6d0;
     void savePercentage(int percent, bool isPracticeMode, int clicks, int attempts, bool isChkValid) = win 0xab9b0, imac 0x582b30, m1 0x4d41d0, ios 0xcdfac;
     void scoreStringToVector(std::string& str, std::vector<int>& vec) = imac 0x583ce0, m1 0x4d5398, ios 0xce960;
@@ -18053,6 +18057,10 @@ class PlayLayer : GJBaseGameLayer, CCCircleWaveDelegate, CurrencyRewardDelegate,
     void optimizeColorGroups();
     void optimizeOpacityGroups();
     void pauseGame(bool unfocused) = win 0x512d60, imac 0x8d7a0, m1 0x82c90, ios 0x14b788;
+    // 2.209: commits the time spent on the level into its record (the last-played / first-played timestamps and the two play-time
+    // counters) and re-bases the timer. Not a name from the game: read from the binary, called from destroyPlayer, levelComplete,
+    // pauseGame and onQuit, and not behind the test-mode flag the record block is. Windows only, found by its address.
+    void commitPlayTime209() = win 0x51ac80;
     void playEndAnimationToPos(cocos2d::CCPoint position) = win 0x506920, imac 0x83590, m1 0x79c88, ios 0x143c1c;
     void playPlatformerEndAnimationToPos(cocos2d::CCPoint position, bool instant) = imac 0x83b60, m1 0x7a1ac, ios 0x14402c;
     TodoReturn playPracticeMusic();
@@ -24704,3 +24712,8 @@ class WriteArchive {
     TodoReturn processString(std::string&);
 }
 
+// gdsolver: not a game class. It gives the 2.209 generic atomic file writer (path, data; writes path.tmp then MoveFileExA over path, the way
+// CCPlatformerSave.dat is written) a name a mod can hook, at the RVA read from the 2.209 binary.
+class GDFileWriter209 {
+    static bool writeAtomic(gd::string const& path, gd::string const& data) = win 0x736b0;
+}
