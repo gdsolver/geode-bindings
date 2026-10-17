@@ -10720,7 +10720,7 @@ class GJGameState {
     cocos2d::CCPoint m_unkPoint1;
     cocos2d::CCPoint m_unkPoint2;
     cocos2d::CCPoint m_unkPoint3;
-    [[renamed_from(m_unkPoint4)]]
+    // gdsolver: no renamed_from here. CCPoint has a user-provided operator=, so the anonymous union that renamed_from makes of the two names deletes GJGameState::operator=, which the mod's state snapshot needs
     cocos2d::CCPoint m_cameraDeltaPosition;
     cocos2d::CCPoint m_unkPoint5;
     cocos2d::CCPoint m_unkPoint6;
@@ -10846,7 +10846,7 @@ class GJGameState {
     std::map<std::pair<int, int>, int> m_activatedObjectIDs;
     float m_unkUint13;
     cocos2d::CCPoint m_unkPoint32;
-    [[renamed_from(m_cameraPosition2)]]
+    // gdsolver: no renamed_from here (same reason as m_cameraDeltaPosition)
     cocos2d::CCPoint m_cameraLastPosition;
     bool m_unkBool20;
     bool m_unkBool21;
