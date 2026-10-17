@@ -13,7 +13,7 @@ cocos2d::CCScriptEngineManager::~CCScriptEngineManager() {
 }
 
 void cocos2d::CCScriptEngineManager::purgeSharedManager() {
-    auto manager = reinterpret_cast<cocos2d::CCScriptEngineManager**>(geode::base::get() + 0x86d818);
+    auto manager = reinterpret_cast<cocos2d::CCScriptEngineManager**>(geode::base::get() + 0x40000000);
     if (*manager) {
         delete *manager;
         *manager = nullptr;

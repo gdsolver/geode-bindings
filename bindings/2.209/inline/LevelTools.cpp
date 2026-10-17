@@ -74,11 +74,11 @@ cocos2d::CCDictionary* LevelTools::createStarPackDict() {
 }
 
 bool LevelTools::getLastGameplayRotated() {
-    return *reinterpret_cast<bool*>(geode::base::get() + 0x6c2c76);
+    return *reinterpret_cast<bool*>(geode::base::get() + 0x40000000);
 }
 
 float LevelTools::getLastTimewarp() {
-    return *reinterpret_cast<float*>(geode::base::get() + 0x8f94a4);
+    return *reinterpret_cast<float*>(geode::base::get() + 0x8fe4f8);
 }
 
 cocos2d::CCPoint LevelTools::posForTime(float time, cocos2d::CCArray* objects, int speed, bool platformer, int& rotateChannel) {

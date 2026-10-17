@@ -175,7 +175,7 @@ float GameToolbox::fast_rand_minus1_1() {
 
 void GameToolbox::fast_srand(uint64_t seed) {
     // TODO: 2.209
-    *reinterpret_cast<uint64_t*>(geode::base::get() + 0x906f68) = seed;
+    *reinterpret_cast<uint64_t*>(geode::base::get() + 0x90bf68) = seed;
 }
 
 cocos2d::ccHSVValue GameToolbox::getMultipliedHSV(cocos2d::ccHSVValue const& value, float factor) {

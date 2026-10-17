@@ -4506,15 +4506,15 @@ class cocos2d::CCTextureETC : cocos2d::CCObject {
 
 [[link(android)]]
 class cocos2d::CCTexturePVR : cocos2d::CCObject {
-    CCTexturePVR() = win 0x142a50, imac 0x2715f0, m1 0x218088, ios 0x412b64;
+    CCTexturePVR() = win 0x40000000, imac 0x2715f0, m1 0x218088, ios 0x412b64;
     virtual ~CCTexturePVR() = win inline, imac 0x271620, m1 0x2180b4, ios 0x412b90;
 
     static cocos2d::CCTexturePVR* create(char const*) = win inline, imac 0x2722d0, m1 0x218bd0, ios inline;
 
-    bool createGLTexture() = win 0x142af0, imac 0x271c60, m1 0x2185fc, ios 0x412fcc;
+    bool createGLTexture() = win 0x40000000, imac 0x271c60, m1 0x2185fc, ios 0x412fcc;
     bool initWithContentsOfFile(char const*) = win 0x9999999, imac 0x271fa0, m1 0x2188bc, ios 0x41319c;
     bool unpackPVRv2Data(unsigned char*, unsigned int) = win 0x9999999, imac 0x271710, m1 0x218184, ios 0x412bec;
-    bool unpackPVRv3Data(unsigned char*, unsigned int) = win 0x143350, imac 0x271980, m1 0x2183a4, ios 0x412dfc;
+    bool unpackPVRv3Data(unsigned char*, unsigned int) = win 0x40000000, imac 0x271980, m1 0x2183a4, ios 0x412dfc;
 }
 
 [[link(win, android)]]
