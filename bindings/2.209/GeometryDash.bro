@@ -6095,8 +6095,9 @@ class FLAlertLayer : cocos2d::CCLayerColor, TextInputDelegate {
     virtual void registerWithTouchDispatcher() = win 0x5b940, imac 0x3fd2b0, m1 0x338040;
     virtual void keyBackClicked() = win 0x5b3e0, m1 0x3fcc80, imac 0x4947f0, ios 0x349580;
     virtual void keyDown(cocos2d::enumKeyCodes key, double timestamp) = win 0x5b350, imac 0x4946d0, m1 0x3fcb70, ios 0x3494dc;
-    virtual void show() = win 0x5b730, imac 0x494bd0, m1 0x3fd0cc, ios 0x34989c;
+    // gdsolver: rebuildContent takes the slot before show in the 2.209 vtable (slots 132..134 hold 0x3f5c0, show 0x5b730, ownsTouchPrio 0x5a230)
     virtual void rebuildContent() = inline;
+    virtual void show() = win 0x5b730, imac 0x494bd0, m1 0x3fd0cc, ios 0x34989c;
     virtual TodoReturn ownsTouchPrio() = win 0x5a230, m1 0x28f4, imac 0x2bc0;
     virtual void textInputShouldOffset(CCTextInputNode*, float) = win 0x5b9a0, m1 0x3fd348, imac 0x494e70;
     virtual void textInputReturn(CCTextInputNode*) = win 0x5bb00, m1 0x3fd4a0, imac 0x495000;
@@ -9062,6 +9063,11 @@ class GJBaseGameLayer : cocos2d::CCLayer, TriggerEffectDelegate {
     virtual void toggleGlitter(bool visible) = inline;
     virtual void destroyPlayer(PlayerObject* player, GameObject* object) = inline;
     virtual void updateDebugDraw() = win 0x314070, imac 0xfd930, m1 0xdc644;
+    // gdsolver: these four take the slots right after updateDebugDraw in the 2.209 vtable (slots 145..148 hold 0x314d10, 0x5a230, 0x5a230, 0x314d30; addToSection is slot 149), not the end of the class
+    virtual TodoReturn shouldDrawDebugHitboxes() = win 0x314d10;
+    virtual TodoReturn shouldDrawHitboxTrail() = win 0x5a230;
+    virtual TodoReturn shouldRecordHitboxTrail() = win 0x5a230;
+    virtual TodoReturn getHitboxTrailMax() = win 0x314d30;
     virtual void addToSection(GameObject* object) = win 0x32c790, imac 0x11cd20, m1 0xf7174, ios 0x28d90c;
     virtual void addToGroup(GameObject* object, int groupID, bool triggerGroup) = win 0x3291f0, imac 0x11a150, m1 0xf4ba4, ios 0x28c12c;
     virtual void removeFromGroup(GameObject* object, int groupID) = win 0x329370, imac 0x11a3a0;
@@ -9096,10 +9102,6 @@ class GJBaseGameLayer : cocos2d::CCLayer, TriggerEffectDelegate {
     virtual void toggleMusicInPractice() = inline;
     virtual void processCheckpoints() = inline;
     virtual void resetLevel() = inline;
-    virtual TodoReturn shouldDrawDebugHitboxes() = win 0x314d10;
-    virtual TodoReturn shouldDrawHitboxTrail() = win 0x5a230;
-    virtual TodoReturn shouldRecordHitboxTrail() = win 0x5a230;
-    virtual TodoReturn getHitboxTrailMax() = win 0x314d30;
 
     void activateCustomRing(RingObject* object) = win inline, imac 0x113430, m1 0xee2c0, ios 0x28797c;
     void activatedAudioTrigger(SFXTriggerGameObject* object, float levelTime) = imac 0x13e9b0, ios 0x2a0e70;
