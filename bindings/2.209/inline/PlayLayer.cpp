@@ -267,9 +267,9 @@ void PlayLayer::updateEffectPositions() {
 
 #if defined(GEODE_IS_WINDOWS)
 // TODO: 2.209
-PlayLayer* PlayLayer::create(GJGameLevel* level, bool dontCreateObjects) {
+PlayLayer* PlayLayer::create(GJGameLevel* level, bool useReplay, bool dontCreateObjects) {
     auto ret = new PlayLayer();
-    if (ret->init(level, dontCreateObjects)) {
+    if (ret->init(level, useReplay, dontCreateObjects)) {
         ret->autorelease();
         return ret;
     }
