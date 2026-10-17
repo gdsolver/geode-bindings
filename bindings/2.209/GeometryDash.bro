@@ -1181,6 +1181,8 @@ class ButtonSprite : cocos2d::CCSprite {
     float m_scale;
     float m_height;
     bool m_absolute;
+    // gdsolver: 2.209 has 0x8 bytes here that upstream lacks; m_label is at 0x278 in the 2.209 binary (measured, our 2.209 branch)
+    PAD = win 0x8;
     cocos2d::CCLabelBMFont* m_label;
     cocos2d::CCSprite* m_subSprite;
     cocos2d::CCSprite* m_subBGSprite;
@@ -2192,6 +2194,8 @@ class CheckpointObject : cocos2d::CCNode {
     GJGameState m_gameState;
     GJShaderState m_shaderState;
     FMODAudioState m_audioState;
+    // gdsolver: 2.209 has 0x8 bytes here that upstream lacks; m_physicalCheckpointObject is at 0xe60 in the 2.209 binary (measured, our 2.209 branch)
+    PAD = win 0x8;
     GameObject* m_physicalCheckpointObject;
     PlayerCheckpoint* m_player1Checkpoint;
     PlayerCheckpoint* m_player2Checkpoint;
@@ -2209,6 +2213,8 @@ class CheckpointObject : cocos2d::CCNode {
     cocos2d::CCArray* m_gradientTriggerObjectArray;
     bool m_unk11e8;
     std::unordered_map<int,SequenceTriggerState> m_sequenceTriggerStateUnorderedMap;
+    // gdsolver: 2.209 has 0x8 bytes here that upstream lacks; m_commandIndex is at 0x1268 in the 2.209 binary (measured, our 2.209 branch)
+    PAD = win 0x8;
     int m_commandIndex;
 }
 
@@ -5457,6 +5463,9 @@ class EffectManagerState {
     std::unordered_set<int> m_unorderedSet_int2;
     std::unordered_map<int,TimerItem> m_timerItemMap;
     std::unordered_map<int,std::vector<TimerTriggerAction>> m_unorderedMapInt_vectorTimerTriggerAction;
+
+    // gdsolver: the 2.209 binary has 0x8 more bytes after the last member (class size 0x340; measured, our 2.209 branch)
+    PAD = win 0x8;
 }
 
 [[link(android)]]
@@ -7167,6 +7176,8 @@ class GameLevelManager : cocos2d::CCNode {
     std::set<std::string> m_queuedLists;
     cocos2d::CCDictionary* m_mainLevels;
     cocos2d::CCDictionary* m_searchFilters;
+    // gdsolver: 2.209 has 0x1f8 bytes here that upstream lacks; m_onlineLevels is at 0x358 in the 2.209 binary (measured, our 2.209 branch)
+    PAD = win 0x1f8;
     cocos2d::CCDictionary* m_onlineLevels;
     cocos2d::CCDictionary* m_storedLevelData;
     cocos2d::CCDictionary* m_followedCreators;
@@ -7555,6 +7566,8 @@ class GameManager : GManager {
     bool m_reloading;
     bool m_fix;
     bool m_reloadTextures;
+    // gdsolver: 2.209 has 0x19 bytes here that upstream lacks; m_unkBool2 is at 0x1ae in the 2.209 binary (measured, our 2.209 branch)
+    PAD = win 0x19;
     bool m_unkBool2;
     bool m_vsyncEnabled;
     cocos2d::CCDictionary* m_valueKeeper;
@@ -7562,6 +7575,8 @@ class GameManager : GManager {
     cocos2d::CCDictionary* m_customObjectDict;
     double m_adTimer;
     double m_adCache;
+    // gdsolver: 2.209 has 0x10 bytes here that upstream lacks; m_unkBool3 is at 0x1e8 in the 2.209 binary (measured, our 2.209 branch)
+    PAD = win 0x10;
     bool m_unkBool3;
     int m_unkSize4_1;
     double m_unkDouble2;
@@ -7659,6 +7674,8 @@ class GameManager : GManager {
     int m_sessionNormalAttempts;
     int m_bootups;
     bool m_hasRatedGame;
+    // gdsolver: 2.209 has 0xc bytes here that upstream lacks; m_unkBool6 is at 0x421 in the 2.209 binary (measured, our 2.209 branch)
+    PAD = win 0xc;
     bool m_unkBool6;
     bool m_shouldLoadUnlockValueKeeper;
     bool m_unkBool7;
@@ -7673,6 +7690,8 @@ class GameManager : GManager {
     bool m_ropeGarageEnter;
     int m_currentGauntlet;
     int m_unkSize4_13;
+    // gdsolver: 2.209 has 0x8 bytes here that upstream lacks; m_unkBool10 is at 0x464 in the 2.209 binary (measured, our 2.209 branch)
+    PAD = win 0x8;
     bool m_unkBool10;
     int m_unkSize4_14;
     bool m_disableThumbstick;
@@ -9490,6 +9509,8 @@ class GJBaseGameLayer : cocos2d::CCLayer, TriggerEffectDelegate {
     PlaybackMode m_playbackMode;
     bool m_lowDetailMode;
     bool m_extraLDM;
+    // gdsolver: 2.209 has 0x1c bytes here that upstream lacks; m_ignoreDamage is at 0x8a2 in the 2.209 binary (measured, our 2.209 branch)
+    PAD = win 0x1c;
     bool m_ignoreDamage;
     bool m_enable22Changes;
     bool m_allowStaticRotate;
@@ -9509,6 +9530,8 @@ class GJBaseGameLayer : cocos2d::CCLayer, TriggerEffectDelegate {
     android, ios {
         std::unordered_set<int> m_allowedButtons;
     }
+    // gdsolver: 2.209 has 0x40 bytes here that upstream lacks; m_effectManager is at 0x9a8 in the 2.209 binary (measured, our 2.209 branch)
+    PAD = win 0x40;
     GJEffectManager* m_effectManager;
     cocos2d::CCSpriteBatchNode* m_gameBlendingLayerT5;
     cocos2d::CCSpriteBatchNode* m_fireBlendingLayerT5;
@@ -9652,6 +9675,8 @@ class GJBaseGameLayer : cocos2d::CCLayer, TriggerEffectDelegate {
     LevelSettingsObject* m_levelSettings;
     cocos2d::CCArray* m_objects;
     cocos2d::CCArray* m_collisionBlocks;
+    // gdsolver: 2.209 has 0x8 bytes here that upstream lacks; m_spawnObjectsArray is at 0xe28 in the 2.209 binary (measured, our 2.209 branch)
+    PAD = win 0x8;
     cocos2d::CCArray* m_spawnObjectsArray;
     cocos2d::CCDictionary* m_spawnObjects;
     cocos2d::CCNode* m_unkdd0;
@@ -9686,6 +9711,8 @@ class GJBaseGameLayer : cocos2d::CCLayer, TriggerEffectDelegate {
     cocos2d::CCDictionary* m_parentGroupsDict;
     cocos2d::CCDictionary* m_parentGroupIDs;
     cocos2d::CCDictionary* m_removedParentGroupIDs;
+    // gdsolver: 2.209 has 0xc0 bytes here that upstream lacks; m_targetGroupsArray is at 0x1098 in the 2.209 binary (measured, our 2.209 branch)
+    PAD = win 0xc0;
     cocos2d::CCArray* m_targetGroupsArray;
     std::unordered_map<int, std::pair<int, int>> m_targetGroups;
     cocos2d::CCDictionary* m_linkedGroupDict;
@@ -9737,10 +9764,14 @@ class GJBaseGameLayer : cocos2d::CCLayer, TriggerEffectDelegate {
     std::unordered_set<int> m_customParticlesUIDs;
     cocos2d::CCDictionary* m_gradientLayers;
     int m_activeGradients;
+    // gdsolver: 2.209 has 0x8 bytes here that upstream lacks; m_shaderLayer is at 0x32a0 in the 2.209 binary (measured, our 2.209 branch)
+    PAD = win 0x8;
     ShaderLayer* m_shaderLayer;
     bool m_objectsDeactivated;
     bool m_areaObjectsUpdated;
     StartPosObject* m_startPosObject;
+    // gdsolver: 2.209 has 0x8 bytes here that upstream lacks; m_useReplay is at 0x32c0 in the 2.209 binary (measured, our 2.209 branch)
+    PAD = win 0x8;
     bool m_useReplay;
     bool m_unk3189;
     int m_solidCollisionObjectsCount;
@@ -9760,6 +9791,8 @@ class GJBaseGameLayer : cocos2d::CCLayer, TriggerEffectDelegate {
     float m_cameraHeightOffset;
     bool m_updateGroundShadows;
     cocos2d::CCDictionary* m_collectedItems;
+    // gdsolver: 2.209 has 0x8 bytes here that upstream lacks; m_levelLength is at 0x3358 in the 2.209 binary (measured, our 2.209 branch)
+    PAD = win 0x8;
     float m_levelLength;
     bool m_resetActiveObjects;
     bool m_skipArtReload;
@@ -9767,6 +9800,8 @@ class GJBaseGameLayer : cocos2d::CCLayer, TriggerEffectDelegate {
     bool m_isTestMode;
     bool m_freezeStartCamera;
     bool m_unk322a;
+    // gdsolver: 2.209 has 0x8 bytes here that upstream lacks; m_cameraUnzoomedHeightOffset is at 0x3374 in the 2.209 binary (measured, our 2.209 branch)
+    PAD = win 0x8;
     float m_cameraUnzoomedHeightOffset;
     float m_targetCameraHeightOffset;
     bool m_calculateTargetHeightOffset;
@@ -9896,14 +9931,21 @@ class GJBaseGameLayer : cocos2d::CCLayer, TriggerEffectDelegate {
     GJGameLoadingLayer* m_loadingLayer;
     cocos2d::CCDrawNode* m_debugDrawNode;
     std::array<cocos2d::CCPoint, 400>* m_debugDrawPoints;
+    // gdsolver: 2.209 has 0x8 bytes here that upstream lacks; m_isDebugDrawEnabled is at 0x38c8 in the 2.209 binary (measured, our 2.209 branch)
+    PAD = win 0x8;
     bool m_isDebugDrawEnabled;
     bool m_disablePlayerHitbox;
     bool m_hitboxesOnDeath;
+    // gdsolver: 2.209 has 0x50 bytes here that upstream lacks; m_anticheatSpike is at 0x3920 in the 2.209 binary (measured, our 2.209 branch)
+    PAD = win 0x50;
     GameObject* m_anticheatSpike;
     double m_timestamp;
     bool m_isBetweenSteps;
     bool m_clickBetweenSteps;
     bool m_clickOnSteps;
+
+    // gdsolver: the 2.209 binary has 0x40 more bytes after the last member (class size 0x3978; measured, our 2.209 branch)
+    PAD = win 0x40;
 }
 
 [[link(android)]]
@@ -10317,6 +10359,8 @@ class GJEffectManager : cocos2d::CCNode {
     std::unordered_set<int> m_persistentTimerItemSet;
     std::unordered_set<int> m_unk3f0;
     std::unordered_set<int> m_unk430;
+    // gdsolver: 2.209 has 0x8 bytes here that upstream lacks; m_timerItemMap is at 0x470 in the 2.209 binary (measured, our 2.209 branch)
+    PAD = win 0x8;
     std::unordered_map<int, TimerItem> m_timerItemMap;
     std::unordered_map<int, std::vector<TimerTriggerAction>> m_unkMap3f8;
     cocos2d::CCArray* m_unkArray430;
@@ -10521,6 +10565,8 @@ class GJGameLevel : cocos2d::CCNode {
     geode::SeedValueRSV m_userID;
     geode::SeedValueRSV m_accountID;
     GJDifficulty m_difficulty;
+    // gdsolver: 2.209 has 0x8 bytes here that upstream lacks; m_audioTrack is at 0x2a4 in the 2.209 binary (measured, our 2.209 branch)
+    PAD = win 0x8;
     int m_audioTrack;
     int m_songID;
     int m_levelRev;
@@ -10546,6 +10592,8 @@ class GJGameLevel : cocos2d::CCNode {
     bool m_isVerifiedRaw;
     bool m_isUploaded;
     bool m_hasBeenModified;
+    // gdsolver: 2.209 has 0x6c bytes here that upstream lacks; m_levelVersion is at 0x35c in the 2.209 binary (measured, our 2.209 branch)
+    PAD = win 0x6c;
     int m_levelVersion;
     int m_gameVersion;
     geode::SeedValueRSV m_attempts;
@@ -10628,6 +10676,9 @@ class GJGameLevel : cocos2d::CCNode {
     bool m_savedPoints;
     android, ios {
         int m_cbsOverride;
+
+    // gdsolver: the 2.209 binary has 0x208 more bytes after the last member (class size 0x840; measured, our 2.209 branch)
+    PAD = win 0x208;
     } // 0 none, 1 enabled, 2 disabled
 }
 
@@ -15150,6 +15201,8 @@ class LevelSettingsObject : cocos2d::CCNode {
     // property kA45
     bool m_decreaseBoostSlide;
     // property kA48
+    // gdsolver: 2.209 has 0x2 bytes here that upstream lacks; m_enableImpulseFix is at 0x1d6 in the 2.209 binary (measured, our 2.209 branch)
+    PAD = win 0x2;
     bool m_enableImpulseFix;
 }
 
@@ -17640,6 +17693,8 @@ class PlayerObject : GameObject, AnimatedSpriteDelegate {
     }
     double m_scaleXRelated4;
     double m_scaleXRelated5;
+    // gdsolver: 2.209 has 0x8 bytes here that upstream lacks; m_isCollidingWithSlope is at 0x660 in the 2.209 binary (measured, our 2.209 branch)
+    PAD = win 0x8;
     bool m_isCollidingWithSlope;
     cocos2d::CCSprite* m_dashFireSprite;
     bool m_isBallRotating;
@@ -18089,6 +18144,8 @@ class PlayLayer : GJBaseGameLayer, CCCircleWaveDelegate, CurrencyRewardDelegate,
     bool m_endChecked;
     float m_endXPosition;
     CheckpointObject* m_currentCheckpoint;
+    // gdsolver: 2.209 has 0x18 bytes here that upstream lacks; m_checkpointArray is at 0x3a78 in the 2.209 binary (measured, our 2.209 branch)
+    PAD = win 0x18;
     cocos2d::CCArray* m_checkpointArray;
     cocos2d::CCArray* m_speedObjects;
     bool m_unk37b0;
@@ -18118,6 +18175,8 @@ class PlayLayer : GJBaseGameLayer, CCCircleWaveDelegate, CurrencyRewardDelegate,
     float m_unk383c;
     bool m_skipAudioStep;
     std::unordered_set<int> m_blendingColors;
+    // gdsolver: 2.209 has 0xa8 bytes here that upstream lacks; m_jumps is at 0x3c08 in the 2.209 binary (measured, our 2.209 branch)
+    PAD = win 0xa8;
     int m_jumps;
     bool m_hasJumped;
     int m_uncommittedJumps;
