@@ -14629,6 +14629,8 @@ class LevelInfoLayer : cocos2d::CCLayer, LevelDownloadDelegate, LevelUpdateDeleg
     CCMenuItemSpriteExtra* m_starRateBtn;
     CCMenuItemSpriteExtra* m_demonRateBtn;
     void* m_unk2;
+    // gdsolver: the update (exe 4EEE06D5) has 0x8 bytes here that upstream lacks: a menu item init stores at +0x228 (and onPlay tests); m_lengthLabel is at 0x230, m_enterTransitionFinished at 0x285 and the object is 0x2f0 long in that binary (measured; the earlier build, 524265B3, has m_lengthLabel at 0x228)
+    PAD = win 0x8;
     cocos2d::CCLabelBMFont* m_lengthLabel;
     cocos2d::CCLabelBMFont* m_exactLengthLabel;
     cocos2d::CCLabelBMFont* m_downloadsLabel;
